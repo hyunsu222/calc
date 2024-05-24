@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>공학용 계산기</title>
+  <style>
+    .calculator {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    
+    .calculator input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+    
+    .calculator button {
+      display: inline-block;
+      width: 49%;
+      padding: 10px;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="num1" placeholder="숫자 1">
+    <input type="text" id="num2" placeholder="숫자 2">
+    <button onclick="calculate('+')">덧셈</button>
+    <button onclick="calculate('-')">뺄셈</button>
+    <button onclick="calculate('*')">곱셈</button>
+    <button onclick="calculate('/')">나눗셈</button>
+    <input type="text" id="result" placeholder="결과" readonly>
+  </div>
+  
+  <script>
+    function calculate(operator) {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+      var result;
+      
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          result = num1 / num2;
+          break;
+      }
+      
+      document.getElementById('result').value = result;
+    }
+  </script>
+</body>
+</html>
